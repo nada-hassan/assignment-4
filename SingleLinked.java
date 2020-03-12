@@ -149,15 +149,15 @@ public class SingleLinked implements ILinkedList  {
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
-		 Node cursor = head;
+		 Node temp = head;
 		 
-		 	    while(cursor != null)
+		 	    while(temp != null)
 		 
-		 	    {    if(cursor.element == o)
+		 	    {    if(temp.element == o)
 		 
 		 	                  {return true;}
 		 
-		 	               cursor = cursor.next;}
+		 	               temp = temp.next;}
 		 		 	            
 		 
 		 	    return false;   
