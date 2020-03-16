@@ -1,18 +1,21 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs76_cs88;
 
 public class SingleLinked implements ILinkedList  {
+	private int length ;
+	private Node head = new Node(null);
 	public class Node{
-	Object element;
-	Node next;
-	public Node(Object s) {
-		element = s; 
-	     }
+		private Object element ;
+		private Node next;
+		Node(Object e){
+			element = e;
+			next= null ;
+		}
+	}
+	public SingleLinked(){
+	this.length=0;
 	
-}
-	Node head;
-	int length=0;
+	}
 	
-	@Override
 	public void add(int index, Object element) {
 		// TODO Auto-generated method stub
 		Node newNode = new Node(element);
@@ -21,7 +24,7 @@ public class SingleLinked implements ILinkedList  {
 		}
 		else if(index==0) {
 			if(length==0) {
-				head=newNode;
+				head= newNode;
 				newNode.next=null;
 			}
 			else {
@@ -42,7 +45,6 @@ public class SingleLinked implements ILinkedList  {
 		}
 	}
 
-	@Override
 	public void add(Object element) {
 		// TODO Auto-generated method stub
 	
@@ -62,7 +64,6 @@ public class SingleLinked implements ILinkedList  {
 		length++;
 		}
 
-	@Override
 	public Object get(int index) {
 		// TODO Auto-generated method stub
 		Node temp=head;
@@ -70,11 +71,9 @@ public class SingleLinked implements ILinkedList  {
 		{
 			temp = temp.next;
 		}
-	//	System.out.println(temp.element);
 		return temp;
 	}
 
-	@Override
 	public void set(int index, Object element) {
 		// TODO Auto-generated method stub
 		Node temp=head;
@@ -86,20 +85,17 @@ public class SingleLinked implements ILinkedList  {
 		temp.element=element;
 	}
 
-	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
 		head=null;
 		length=0;
 	}
 
-	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return length==0;
 	}
 
-	@Override
 	public void remove(int index) {
 		// TODO Auto-generated method stub
 		
@@ -124,13 +120,11 @@ public class SingleLinked implements ILinkedList  {
         length--;
 	}}
 
-	@Override
 	public int size() {
 		// TODO Auto-generated method stub
 		return length;
 	}
 
-	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
 		SingleLinked  sub = new SingleLinked();
@@ -146,18 +140,17 @@ public class SingleLinked implements ILinkedList  {
 	    return sub;
 	}
 
-	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
-		 Node temp = head;
+		 Node cursor = head;
 		 
-		 	    while(temp != null)
+		 	    while(cursor != null)
 		 
-		 	    {    if(temp.element == o)
+		 	    {    if(cursor.element == o)
 		 
 		 	                  {return true;}
 		 
-		 	               temp = temp.next;}
+		 	               cursor = cursor.next;}
 		 		 	            
 		 
 		 	    return false;   
@@ -174,6 +167,5 @@ public class SingleLinked implements ILinkedList  {
 			temp = temp.next;
 		}
 	}
-	
-
 }
+
